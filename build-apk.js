@@ -92,7 +92,7 @@ orchestrator.add('generate-signed-apk', ['copy-keystore-to-project'], function(c
 
     process.chdir(CWD + '/' + PROJECT_NAME + '/android');
 
-    var child = exec('gradlew assembleRelease', function(error, stdout, stderr) {
+    var child = exec('./gradlew assembleRelease', function(error, stdout, stderr) {
         if (error == null) {
             console.log('Generate APK successful');
             callback(null);
