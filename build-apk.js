@@ -8,7 +8,7 @@ var RC_BRANCH = 'v2.4-rc';
 var CWD = process.cwd(); // current directory
 
 // download repo from GitHub
-var cmd = 'git clone https://github.com/UCSD/now-mobile ' + PROJECT_NAME;
+var cmd = 'git clone https://github.com/UCSD/campus-mobile ' + PROJECT_NAME;
 
 orchestrator.add('clone-repo', function(callback) {
     console.log("Cloning repository.");
