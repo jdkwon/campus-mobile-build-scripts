@@ -4,7 +4,7 @@ var Orchestrator = require('orchestrator');
 var orchestrator = new Orchestrator();
 
 var PROJECT_NAME = 'bld';
-var RC_BRANCH = 'v2.4-rc';
+var RC_BRANCH = 'v5.0-rc';
 var CWD = process.cwd(); // current directory
 
 // download repo from GitHub
