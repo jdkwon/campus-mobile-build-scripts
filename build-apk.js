@@ -67,22 +67,22 @@ orchestrator.add('replace-key-strings', ['prepare-repo'], function(callback) {
     });
 });
 
-orchestrator.add('apply-ga-bridge-fix', ['replace-key-strings'], function(callback) {
-    console.log("Applying Google Analytics Bridge node_modules fix");
+orchestrator.add('apply-fixes', ['replace-key-strings'], function(callback) {
+    console.log("Applying fixes.");
 
     process.chdir(CWD + '/' + PROJECT_NAME);
 
-    var child = exec('npm run-script apply-ga-bridge-fix', function(error, stdout, stderr) {
+    var child = exec('npm run-script apply-fixes', function(error, stdout, stderr) {
         if (error == null) {
-            console.log('Applied Google Analytics Bridge node_modules fix');
+            console.log('Applied fixes');
             callback(null);
         } else {
-            console.log('Error applying Google Analytics Bridge node_modules fix');
+            console.log('Error applying fixes');
         }
     });
 });
 
-orchestrator.add('copy-keystore-to-project', ['apply-ga-bridge-fix'], function(callback) {
+orchestrator.add('copy-keystore-to-project', ['apply-fixes'], function(callback) {
     console.log("Copying keystore to project.");
 
     process.chdir(CWD + '/' + PROJECT_NAME + '/android/app');
@@ -117,7 +117,7 @@ orchestrator.start(
     'change-to-release-branch',
     'prepare-repo',
     'replace-key-strings',
-    'apply-ga-bridge-fix',
+    'apply-fixes',
     'copy-keystore-to-project',
     'generate-signed-apk'
 );
