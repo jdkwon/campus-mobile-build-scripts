@@ -57,7 +57,7 @@ orchestrator.add('replace-key-strings', ['prepare-repo'], function(callback) {
 
     process.chdir(CWD + '/' + PROJECT_NAME);
 
-    var child = exec('node scripts/replace_all.js insert-production-values', function(error, stdout, stderr) {
+    var child = exec('npm run-script insert-production-values', function(error, stdout, stderr) {
         if (error == null) {
             console.log('Replaced key strings successful.');
             callback(null);
